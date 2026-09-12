@@ -22,8 +22,9 @@
     </a>
     <div class="links">
         <a href="#features">Features</a>
+        <a href="#about">About</a>
         <a href="#universities">Universities</a>
-        <a href="#stories">Stories</a>
+        <a href="#contact">Contact</a>
         <a href="#faq">FAQ</a>
     </div>
     <div class="actions">
@@ -143,6 +144,30 @@
     <!--            </div>-->
     <!--        </div>-->
     <!--    </section>-->
+    <section class="section about-section" id="about">
+        <div class="about-layout">
+            <div class="about-copy reveal">
+                <span class="eyebrow">ABOUT UNIHUB</span>
+                <h2>Built to make student life simpler.</h2>
+                <p>UniHub is a student-focused digital platform created to bring the most useful parts of university life into one connected place. Instead of searching through different groups, websites and chats, students can discover study resources, previous exams, internships, IT events, teammates, roommates and important announcements through one experience.</p>
+                <p>Our first version focuses on students enrolled in IT-related faculties and study programmes across North Macedonia.</p>
+                <div class="about-values"><span>Student-first</span><span>Community-driven</span><span>Useful by design</span></div>
+            </div>
+            <div class="about-panel reveal">
+                <span class="eyebrow">OUR PURPOSE</span>
+                <h3>Learn. Connect. Grow.</h3>
+                <p>UniHub connects academic resources, career opportunities and student communities so students can spend less time searching and more time progressing.</p>
+                <div class="purpose-grid"><div><strong>01</strong><span>Learn smarter</span></div><div><strong>02</strong><span>Find opportunities</span></div><div><strong>03</strong><span>Meet your people</span></div><div><strong>04</strong><span>Stay informed</span></div></div>
+            </div>
+        </div>
+        <div class="team-head reveal"><span class="eyebrow">MEET THE TEAM</span><h2>The students behind UniHub.</h2></div>
+        <div class="team-grid">
+            <article class="team-card reveal"><div class="team-avatar">D</div><h3>Dea</h3><p>Project team member</p></article>
+            <article class="team-card reveal"><div class="team-avatar">E</div><h3>Erdi</h3><p>Project team member</p></article>
+            <article class="team-card reveal"><div class="team-avatar">N</div><h3>Naz</h3><p>Project team member</p></article>
+        </div>
+    </section>
+
     <section class="section" id="universities">
         <span class="eyebrow">MADE FOR EVERY CAMPUS</span>
         <h2>Your university belongs here.</h2>
@@ -191,6 +216,31 @@
             </article>
         </div>
     </section>
+    <section class="section contact-section" id="contact">
+        <div class="contact-layout">
+            <div class="contact-copy reveal">
+                <span class="eyebrow">CONTACT UNIHUB</span>
+                <h2>Questions, ideas or feedback?</h2>
+                <p>UniHub is built around student needs. If you have a suggestion, want to report an issue, or simply want to share feedback about the platform, send us a message.</p>
+                <div class="contact-details">
+                    <div><span>Project</span><strong>UniHub — Everything for Students</strong></div>
+                    <div><span>Team</span><strong>Dea · Erdi · Naz</strong></div>
+                    <div><span>Location</span><strong>North Macedonia</strong></div>
+                    <div><span>Focus</span><strong>IT students and university communities</strong></div>
+                </div>
+            </div>
+            <form class="contact-form reveal" id="contactForm">
+                <div class="contact-form-head"><span class="eyebrow">SEND A MESSAGE</span><h3>We would love to hear from you.</h3></div>
+                <label><span>Name</span><input type="text" name="name" required placeholder="Your name"></label>
+                <label><span>Email</span><input type="email" name="email" required placeholder="student@example.com"></label>
+                <label><span>Subject</span><select name="subject" required><option value="">Choose a subject</option><option>General question</option><option>Feedback</option><option>Report an issue</option><option>Partnership or event</option></select></label>
+                <label><span>Message</span><textarea name="message" required placeholder="Write your message here..."></textarea></label>
+                <button class="btn primary contact-submit" type="submit">Send message</button>
+                <p class="contact-status" id="contactStatus" role="status"></p>
+            </form>
+        </div>
+    </section>
+
     <section class="section" id="faq">
         <span class="eyebrow">FAQ</span>
         <h2>Questions students usually ask.</h2>
@@ -218,7 +268,7 @@
 </main>
 <footer class="wrap">
     <span>© 2026 UniHub · Built by Dea, Erdi & Naz</span>
-    <span>Privacy · Terms · Contact</span>
+    <span class="footer-links"><a href="#about">About</a><a href="#contact">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></span>
 </footer>
 <script src="public.js">
 </script>
