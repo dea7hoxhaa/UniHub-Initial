@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="UniHub — everything students need in one intelligent platform." />
+  <title>UniHub — Everything for Students</title>
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="networkCanvas"></canvas>
+  <div class="noise"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand brand-lockup" href="#home" aria-label="UniHub dashboard"><img class="brand-img brand-img-dark" src="assets/logo-dark.png" alt="UniHub"><img class="brand-img brand-img-light" src="assets/logo-light.png" alt="UniHub"></a>
+
+    <nav>
+      <span class="nav-label">PLATFORM</span>
+      <button class="nav-link active" data-view="home"><i><img class="asset-icon " src="assets/icons/home.png" alt="" aria-hidden="true"></i>Dashboard</button>
+      <button class="nav-link" data-view="notes"><i><img class="asset-icon " src="assets/icons/notes.png" alt="" aria-hidden="true"></i>Notes & summaries</button>
+      <button class="nav-link" data-view="exams"><i><img class="asset-icon " src="assets/icons/exam.png" alt="" aria-hidden="true"></i>Previous exams</button>
+      <button class="nav-link" data-view="internships"><i><img class="asset-icon " src="assets/icons/briefcase.png" alt="" aria-hidden="true"></i>Internships</button>
+      <button class="nav-link" data-view="events"><i><img class="asset-icon " src="assets/icons/calendar.png" alt="" aria-hidden="true"></i>IT events <span class="count">3</span></button>
+      <button class="nav-link" data-view="teammates"><i><img class="asset-icon " src="assets/icons/team.png" alt="" aria-hidden="true"></i>Find teammates</button>
+      <button class="nav-link" data-view="roommates"><i><img class="asset-icon " src="assets/icons/room.png" alt="" aria-hidden="true"></i>Find roommates</button>
+      <button class="nav-link" data-view="announcements"><i><img class="asset-icon " src="assets/icons/announce.png" alt="" aria-hidden="true"></i>Announcements <span class="count">12</span></button>
+      <button class="nav-link" data-view="profile"><i><img class="asset-icon " src="assets/icons/profile.png" alt="" aria-hidden="true"></i>My profile</button>
+    </nav>
+
+    <div class="sidebar-user">
+      <div class="avatar">DE</div>
+      <div><b data-user-name>Student</b><small data-user-context>Your faculty · Study year</small></div>
+      <button>•••</button>
+    </div>
+  </aside>
+
+  <div class="app">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu">☰</button>
+      <label class="global-search">
+        <span>⌕</span>
+        <input id="globalSearch" placeholder="Search UniHub..." />
+        <kbd>⌘ K</kbd>
+      </label>
+      <div class="top-actions">
+        <button class="icon-btn theme-toggle" id="themeToggle" type="button">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5Z"></path></svg>
+        </button>
+        <button class="icon-btn" id="notificationButton" aria-label="Notifications"><img class="asset-icon ui-icon" src="assets/icons/bell.png" alt="" aria-hidden="true"></button>
+        <button class="primary-btn" data-open-modal>+ Create</button>
+      </div>
+    </header>
+
+    <main id="mainContent">
+      <section class="view active" id="home">
+        <div class="page-head reveal">
+          <div><span class="eyebrow" id="currentDateLabel" data-i18n-ignore="true">MONDAY, 27 JULY</span><h1>Good evening, Dea 👋</h1><p>Here is what is happening across your student network today.</p></div>
+          <button class="secondary-btn">Customize dashboard</button>
+        </div>
+
+        <section class="assistant reveal">
+          <div class="assistant-top"><span><i></i> UNI ASSISTANT</span><small>Smart discovery</small></div>
+          <h2>What are you looking for today?</h2>
+          <p>Ask naturally. UniHub will guide you to notes, exams, internships, events, teammates, roommates or announcements.</p>
+          <div class="assistant-search"><span>✦</span><input id="assistantInput" placeholder="Example: Find Calculus 1 summaries..." /><button class="primary-btn" id="assistantButton">Find it</button></div>
+          <div class="chips"><button data-query="internships in Skopje">Internships in Skopje</button><button data-query="upcoming hackathons">Upcoming hackathons</button><button data-query="Calculus 1 notes">Calculus notes</button><button data-query="Java teammates">Java teammates</button></div>
+        </section>
+
+<!--        <section class="stats-grid">-->
+<!--          <article class="stat-card reveal"><div><span>📚</span><small>+18 this week</small></div><strong>1,284</strong><p>Study resources</p></article>-->
+<!--          <article class="stat-card reveal"><div><span>💼</span><small>+6 new</small></div><strong>46</strong><p>Active internships</p></article>-->
+<!--          <article class="stat-card reveal"><div><span>📅</span><small>3 near you</small></div><strong>18</strong><p>Upcoming events</p></article>-->
+<!--          <article class="stat-card reveal"><div><span>🤝</span><small>84 online</small></div><strong>2,486</strong><p>Student members</p></article>-->
+<!--        </section>-->
+
+        <div class="section-title reveal"><div><span class="eyebrow">YOUR FEED</span><h2>Fresh from the student community</h2></div><button class="text-btn" data-jump="announcements">View all activity →</button></div>
+        <div class="dashboard-layout">
+          <section class="feed">
+            <article class="feed-card reveal">
+              <div class="feed-head"><div class="avatar">EL</div><div><b>Elena Petrova</b><small>FINKI · 15 minutes ago</small></div><span>STUDY MATERIAL</span></div>
+              <h3>Algorithms and Data Structures — Complete Exam Collection</h3><p>I organized all previous exams from 2021–2025 and added short solution hints.</p>
+              <div class="attachment"><b>PDF</b><div><strong>ADS_Exam_Collection.pdf</strong><small>24 pages · 6.8 MB · 428 downloads</small></div><button data-jump="notes">Open ↗</button></div>
+              <div class="feed-actions"><button class="like-btn">♡ Like</button><button>12 comments</button><button>↗ Share</button></div>
+            </article>
+            <article class="feed-card reveal">
+              <div class="feed-head"><div class="avatar">MK</div><div><b>Marko Iliev</b><small>SEEU · 1 hour ago</small></div><span>TEAM REQUEST</span></div>
+              <h3>Looking for one UI/UX designer for Code by the Lake</h3><p>We are building a student budgeting app and need one designer available on 3–4 August.</p>
+              <div class="attachment"><b>TEAM</b><div><strong>3 of 4 members</strong><small>React · Node.js · Figma · Ohrid</small></div><button data-jump="teammates">View ↗</button></div>
+              <div class="feed-actions"><button class="like-btn">♡ Like</button><button>7 comments</button><button>↗ Share</button></div>
+            </article>
+          </section>
+          <aside class="side-stack">
+            <section class="panel reveal"><h3>Upcoming deadlines</h3><div class="deadline"><b>30<span>JUL</span></b><div><strong>Frontend internship</strong><small>Application closes soon</small></div><em>3 days</em></div><div class="deadline"><b>03<span>AUG</span></b><div><strong>Code by the Lake</strong><small>Team registration</small></div><em>7 days</em></div><div class="deadline"><b>12<span>AUG</span></b><div><strong>Design Thinking Lab</strong><small>Workshop registration</small></div><em>16 days</em></div></section>
+            <section class="panel reveal"><h3>Your contribution level</h3><p>You are close to unlocking the <strong>Notes Master</strong> badge.</p><div class="progress-label"><span>780 points</span><span>1,000</span></div><div class="progress"><i style="width:78%"></i></div></section>
+            <section class="panel reveal"><h3>Trending subjects</h3><div class="tags"><span>Algorithms</span><span>Calculus I</span><span>Java OOP</span><span>Networks</span><span>AI</span><span>Databases</span></div></section>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="notes"><div class="page-head"><div><span class="eyebrow">STUDY SMARTER</span><h1>Notes & summaries</h1><p>Organized student-made resources by faculty, subject and semester.</p></div><button class="primary-btn" data-open-modal>+ Upload material</button></div><div class="filters"><button class="active" data-filter="all">All resources</button><button data-filter="notes">Notes</button><button data-filter="summary">Summaries</button><select id="notesUniversityFilter"><option value="">All universities</option></select><select id="notesFacultyFilter"><option value="">All IT faculties</option></select></div><div class="cards-grid" id="notesGrid"></div></section>
+
+      <section class="view" id="exams"><div class="page-head"><div><span class="eyebrow">KNOW WHAT TO EXPECT</span><h1>Previous exams</h1><p>Exam archives sorted by subject, professor, semester and year.</p></div><button class="primary-btn" data-open-modal>+ Upload exam</button></div><div class="filters"><button class="active" data-filter="all">All exams</button><button data-filter="easy">Easier</button><button data-filter="medium">Medium</button><button data-filter="hard">Hard</button></div><div class="cards-grid" id="examsGrid"></div></section>
+
+      <section class="view" id="internships"><div class="page-head"><div><span class="eyebrow">BUILD YOUR FUTURE</span><h1>Student internships</h1><p>Verified student-friendly opportunities from companies across Macedonia.</p></div><button class="primary-btn" data-open-modal>+ Post opportunity</button></div><div class="filters"><button class="active" data-filter="all">All roles</button><button data-filter="software">Software</button><button data-filter="data">Data</button><button data-filter="design">Design</button></div><div class="cards-grid" id="jobsGrid"></div></section>
+
+      <section class="view" id="events"><div class="page-head"><div><span class="eyebrow">WHAT'S HAPPENING</span><h1>IT events across Macedonia</h1><p>Meetups, hackathons, conferences and workshops across the country.</p></div><button class="primary-btn" data-open-modal>+ Add event</button></div><div class="filters"><button class="active" data-filter="all">All events</button><button data-filter="meetup">Meetups</button><button data-filter="hackathon">Hackathons</button><button data-filter="workshop">Workshops</button></div><div class="cards-grid" id="eventsGrid"></div></section>
+
+      <section class="view" id="teammates"><div class="page-head"><div><span class="eyebrow">FIND YOUR PEOPLE</span><h1>Teammate matching</h1><p>Match by university, skills, interests, availability and project goals.</p></div><button class="primary-btn" data-open-modal>+ Create team request</button></div><div class="filters"><button class="active" data-filter="all">Best matches</button><button data-filter="frontend">Frontend</button><button data-filter="backend">Backend</button><button data-filter="design">Design</button><button data-filter="ai">AI</button></div><div class="cards-grid" id="peopleGrid"></div></section>
+
+      <section class="view" id="roommates"><div class="page-head"><div><span class="eyebrow">STUDENT HOUSING</span><h1>Find roommates & rooms</h1><p>Browse student-friendly housing and connect with compatible roommates.</p></div><button class="primary-btn" data-open-modal>+ Post listing</button></div><div class="filters"><button class="active" data-filter="all">All listings</button><button data-filter="skopje">Skopje</button><button data-filter="tetovo">Tetovo</button><button data-filter="bitola">Bitola</button></div><div class="cards-grid" id="roomsGrid"></div></section>
+
+      <section class="view" id="announcements"><div class="page-head"><div><span class="eyebrow">STAY INFORMED</span><h1>Student announcements</h1><p>Important updates, deadlines, scholarships and opportunities.</p></div><button class="primary-btn" data-open-modal>+ Post announcement</button></div><div class="dashboard-layout"><section class="feed" id="announcementFeed"></section><aside class="side-stack"><section class="panel"><h3>Categories</h3><div class="tags"><span>Deadlines</span><span>Scholarships</span><span>Campus</span><span>Competitions</span><span>Mobility</span><span>Volunteering</span></div></section><section class="panel"><h3>Most followed sources</h3><div class="source"><div class="avatar">FI</div><div><b>FINKI Hub</b><small>4.8k followers</small></div><button>Follow</button></div><div class="source"><div class="avatar">UK</div><div><b>UKIM Student Office</b><small>6.2k followers</small></div><button>Follow</button></div></section></aside></div></section>
+
+      <section class="view" id="profile"><div class="page-head"><div><span class="eyebrow">YOUR STUDENT IDENTITY</span><h1>My profile</h1><p>Your contributions, badges, saved items and activity across UniHub.</p></div><button class="secondary-btn">Edit profile</button></div><div class="profile-layout"><aside class="profile-card"><div class="profile-avatar">DE</div><h2 data-profile-name>Student</h2><p data-profile-study>Your faculty · Your programme · Study year</p><p data-profile-location>North Macedonia</p><div class="points"><strong>780</strong><span>contribution points</span></div><h3>Badges</h3><div class="badges"><span>📚<small>Notes Master</small></span><span>🔥<small>Active Student</small></span><span>🤝<small>Team Player</small></span><span>💼<small>Career Hunter</small></span><span>⭐<small>Top Rated</small></span><span>🎓<small>Mentor</small></span></div></aside><div class="side-stack"><section class="panel"><h3>About</h3><p>Software engineering student interested in AI, web development and building useful digital products for students.</p><div class="tags"><span>C++</span><span>Java</span><span>Python</span><span>Web Development</span><span>UI/UX</span></div></section><section class="panel"><h3>Recent activity</h3><div class="activity"><b>PDF</b><div><strong>Uploaded Algorithms exam collection</strong><small>Reached 428 downloads</small></div><em>2h</em></div><div class="activity"><b>♥</b><div><strong>Saved AI Builders Macedonia</strong><small>Event in Skopje</small></div><em>1d</em></div><div class="activity"><b>TEAM</b><div><strong>Joined Code by the Lake team</strong><small>Role: Frontend developer</small></div><em>2d</em></div></section></div></div></section>
+    </main>
+  </div>
+
+  <aside class="notifications" id="notifications"><h3>Notifications</h3><div><p><b>New frontend internship</b><small>Student-friendly role in Skopje · 20 min ago</small></p></div><div><p><b>Your notes reached 500 downloads</b><small>Algorithms and Data Structures · 1h ago</small></p></div><div><p><b>New teammate request</b><small>Elena invited you to a hackathon team · 3h ago</small></p></div></aside>
+
+  <div class="modal" id="createModal"><form class="modal-box" id="createForm"><div class="modal-head"><h2>Create a UniHub post</h2><button type="button" id="closeModal">×</button></div><div class="form-grid"><label>Category<select><option>Study material</option><option>Internship</option><option>Event</option><option>Team request</option><option>Roommate post</option><option>Announcement</option></select></label><label>University<select id="postUniversity" required><option value="">Choose university</option></select></label><label>Faculty<select id="postFaculty" required><option value="">Choose faculty</option></select></label><label>Study programme<select id="postProgram" required><option value="">Choose programme</option></select></label><label class="full">Title<input required placeholder="Give your post a clear title" /></label><label class="full">Description<textarea required placeholder="Add the important details..."></textarea></label></div><div class="modal-actions"><button type="button" class="secondary-btn" id="cancelModal">Cancel</button><button class="primary-btn">Publish post</button></div></form></div>
+  <div class="toast" id="toast">Saved ✨</div>
+  <script src="education-data.js"></script><script src="script.js"></script><script src="i18n.js"></script>
+</body>
+</html>

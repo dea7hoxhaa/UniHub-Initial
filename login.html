@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sign in — UniHub</title>
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+<button class="theme-toggle-btn auth-theme" id="themeToggle" type="button">
+    <svg class="theme-icon sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+    <svg class="theme-icon moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5Z"></path></svg>
+</button>
+<div class="auth-shell">
+    <section class="auth-visual">
+        <a class="brand brand-lockup" href="index.html" aria-label="UniHub home">
+<img class="brand-img brand-img-dark" src="assets/logo-dark.png" alt="UniHub — Everything for Students">
+<img class="brand-img brand-img-light" src="assets/logo-light.png" alt="UniHub — Everything for Students">
+</a><div class="auth-copy">
+        <span class="eyebrow">WELCOME BACK</span>
+        <h1>Your university life,<br><span class="gradient">ready when you are.</span></h1>
+        <p>Continue where you left off and see everything personalized for your faculty, year and interests.</p>
+        <div class="auth-points">
+            <span>New materials for your courses</span>
+            <span>Internships matching your profile</span>
+            <span>Students looking for teammates</span>
+        </div>
+    </div>
+        <small style="color:var(--muted)">UniHub · Student platform for North Macedonia</small>
+    </section>
+    <section class="auth-panel">
+        <form class="auth-card" id="loginForm">
+            <span class="eyebrow">STUDENT ACCOUNT</span>
+            <h2>Sign in to UniHub</h2>
+            <p>Use any demo email and password to preview the logged-in platform.</p>
+            <button type="button" class="social" id="googleLogin">G&nbsp;&nbsp; Continue with Google</button>
+            <div class="divider">OR CONTINUE WITH EMAIL</div>
+            <div class="field">
+                <label>EMAIL</label>
+                <input type="email" required placeholder="student@example.com">
+            </div>
+            <div class="field">
+                <label>PASSWORD</label>
+                <input type="password" required minlength="4" placeholder="••••••••">
+            </div>
+            <button class="btn primary auth-submit">Sign in</button>
+            <div class="auth-foot">New to UniHub? <a href="signup.html">Create an account</a>
+            </div>
+        </form>
+    </section>
+</div>
+<script src="auth.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

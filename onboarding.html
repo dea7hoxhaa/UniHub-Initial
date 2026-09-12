@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personalize UniHub</title>
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+  <canvas id="publicCanvas"></canvas>
+  <button class="theme-toggle-btn auth-theme" id="themeToggle" type="button">
+    <svg class="theme-icon sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+    <svg class="theme-icon moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5Z"></path></svg>
+  </button>
+  <main class="onboarding">
+    <a class="brand brand-lockup" href="index.html" aria-label="UniHub home">
+<img class="brand-img brand-img-dark" src="assets/logo-dark.png" alt="UniHub — Everything for Students">
+<img class="brand-img brand-img-light" src="assets/logo-light.png" alt="UniHub — Everything for Students">
+</a>
+    <div class="onboarding-intro">
+      <span class="eyebrow">PERSONALIZE YOUR EXPERIENCE</span>
+      <h1>Let UniHub get to know you.</h1>
+      <p>This determines the notes, exams, opportunities, events and students shown on your dashboard.</p>
+    </div>
+
+    <div class="steps" aria-label="Onboarding progress"><i class="active"></i><i></i><i></i><i></i><i></i></div>
+
+    <section class="step active" data-step="0">
+      <div class="step-heading"><div><span class="step-number">01</span><h2>Choose your university</h2><p>Every listed institution offers at least one IT-related study path.</p></div><input class="option-search" id="universitySearch" placeholder="Search university or city…"></div>
+      <div class="option-grid directory-grid" id="universityOptions"></div>
+    </section>
+
+    <section class="step" data-step="1">
+      <div class="step-heading"><div><span class="step-number">02</span><h2>Choose your faculty or school</h2><p id="facultyContext">Only IT-related faculties from your university will appear.</p></div></div>
+      <div class="option-grid directory-grid" id="facultyOptions"></div>
+    </section>
+
+    <section class="step" data-step="2">
+      <div class="step-heading"><div><span class="step-number">03</span><h2>Choose your study programme</h2><p id="programContext">This helps UniHub recommend the most relevant subjects and resources.</p></div></div>
+      <div class="option-grid directory-grid" id="programOptions"></div>
+    </section>
+
+    <section class="step" data-step="3">
+      <div class="step-heading"><div><span class="step-number">04</span><h2>Choose your study year</h2><p>Your year controls which course materials and exam archives appear first.</p></div></div>
+      <div class="option-grid" id="yearOptions">
+        <button class="option" type="button" data-value="Year 1"><b>Year 1</b><small>First year</small></button>
+        <button class="option" type="button" data-value="Year 2"><b>Year 2</b><small>Second year</small></button>
+        <button class="option" type="button" data-value="Year 3"><b>Year 3</b><small>Third year</small></button>
+        <button class="option" type="button" data-value="Year 4"><b>Year 4</b><small>Fourth year</small></button>
+        <button class="option" type="button" data-value="Postgraduate"><b>Postgraduate</b><small>Master's or doctoral studies</small></button>
+      </div>
+    </section>
+
+    <section class="step" data-step="4">
+      <div class="step-heading"><div><span class="step-number">05</span><h2>Select your interests</h2><p>Choose as many as you like.</p></div></div>
+      <div class="option-grid multi-select" id="interestOptions">
+        <button class="option" type="button" data-value="Artificial Intelligence"><b>Artificial Intelligence</b><small>AI, ML and data</small></button>
+        <button class="option" type="button" data-value="Web Development"><b>Web Development</b><small>Frontend and backend</small></button>
+        <button class="option" type="button" data-value="Cybersecurity"><b>Cybersecurity</b><small>Security and networks</small></button>
+        <button class="option" type="button" data-value="Software Engineering"><b>Software Engineering</b><small>Architecture and product development</small></button>
+        <button class="option" type="button" data-value="Data Science"><b>Data Science</b><small>Analytics and intelligent systems</small></button>
+        <button class="option" type="button" data-value="UI/UX Design"><b>UI/UX Design</b><small>Product and interaction design</small></button>
+        <button class="option" type="button" data-value="Game Development"><b>Game Development</b><small>Graphics, engines and interactive media</small></button>
+        <button class="option" type="button" data-value="Robotics"><b>Robotics</b><small>Automation and embedded systems</small></button>
+      </div>
+    </section>
+
+    <p class="selection-error" id="selectionError" role="alert"></p>
+    <div class="onboard-actions"><button class="btn" id="backStep" type="button">Back</button><button class="btn primary" id="nextStep" type="button">Continue</button></div>
+  </main>
+  <script src="education-data.js"></script>
+  <script src="auth.js"></script>
+  <script src="i18n.js"></script>
+</body>
+</html>

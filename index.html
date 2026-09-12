@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>UniHub — Your Student Life, Connected</title>
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="public.css">
+</head>
+<body>
+<canvas id="publicCanvas">
+</canvas>
+<div class="noise">
+</div>
+<nav class="nav">
+    <a class="brand brand-lockup" href="index.html" aria-label="UniHub home">
+        <img class="brand-img brand-img-dark" src="assets/logo-dark.png" alt="UniHub — Everything for Students">
+        <img class="brand-img brand-img-light" src="assets/logo-light.png" alt="UniHub — Everything for Students">
+    </a>
+    <div class="links">
+        <a href="#features">Features</a>
+        <a href="#universities">Universities</a>
+        <a href="#stories">Stories</a>
+        <a href="#faq">FAQ</a>
+    </div>
+    <div class="actions">
+        <button class="theme-toggle-btn" id="themeToggle" type="button">
+            <svg class="theme-icon sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+            <svg class="theme-icon moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5Z"></path></svg>
+        </button>
+        <a class="btn" href="login.html">Sign in</a>
+        <a class="btn primary" href="signup.html">Create account</a>
+    </div>
+</nav>
+<main class="wrap"><section class="hero hero-brand">
+    <div class="hero-copy reveal">
+        <span class="eyebrow">BUILT BY STUDENTS, FOR STUDENTS</span>
+        <h1>One Hub.<br><span class="gradient">Everything for Students.</span></h1>
+        <p>Notes, internships, IT events, previous exams, teammates, roommates and more — all connected in one student platform.</p>
+        <div class="hero-actions"><a class="btn primary" href="signup.html">Get Started →</a><a class="btn" href="#features">Explore Platform</a></div>
+        <div class="hero-proof"><div class="proof-avatars"><span>AN</span><span>MK</span><span>EL</span><span>DN</span></div><p><strong>Built for IT students</strong><br><small>Across universities in North Macedonia</small></p></div>
+    </div>
+    <div class="hub-visual reveal" id="hubVisual">
+        <div class="hub-orbit orbit-one"></div><div class="hub-orbit orbit-two"></div><div class="hub-orbit orbit-three"></div><div class="hub-glow"></div>
+        <div class="hub-core"><img src="assets/logo-mark.png" alt="UniHub UH monogram"></div>
+        <div class="hub-node node-notes"><img class="asset-icon " src="assets/icons/notes.png" alt="" aria-hidden="true"><span>Study Notes</span></div>
+        <div class="hub-node node-jobs"><img class="asset-icon " src="assets/icons/briefcase.png" alt="" aria-hidden="true"><span>Internships</span></div>
+        <div class="hub-node node-exams"><img class="asset-icon " src="assets/icons/exam.png" alt="" aria-hidden="true"><span>Past Exams</span></div>
+        <div class="hub-node node-events"><img class="asset-icon " src="assets/icons/calendar.png" alt="" aria-hidden="true"><span>Events</span></div>
+        <div class="hub-node node-team"><img class="asset-icon " src="assets/icons/team.png" alt="" aria-hidden="true"><span>Teammates</span></div>
+        <div class="hub-node node-room"><img class="asset-icon " src="assets/icons/room.png" alt="" aria-hidden="true"><span>Roommates</span></div>
+        <div class="hub-platform"></div>
+    </div>
+</section>
+    <section class="section category-section" id="features">
+        <div class="category-heading">
+            <div>
+                <span class="eyebrow">EXPLORE UNIHUB</span>
+                <h2>Explore by Category</h2>
+            </div>
+            <a class="category-view-all" href="signup.html">View all</a>
+        </div>
+
+        <div class="category-grid">
+            <article class="category-card category-resources reveal">
+                <div class="category-content">
+                    <span class="category-icon">
+                        <img src="assets/icons/notes.png" alt="" aria-hidden="true">
+                    </span>
+                    <div>
+                        <h3>Study Resources</h3>
+                        <p>Share and discover helpful materials.</p>
+                    </div>
+                </div>
+                <img class="category-art category-art-resources" src="assets/icons/notes.png" alt="" aria-hidden="true">
+            </article>
+
+            <article class="category-card category-internships reveal">
+                <div class="category-content">
+                    <span class="category-icon">
+                        <img src="assets/icons/briefcase.png" alt="" aria-hidden="true">
+                    </span>
+                    <div>
+                        <h3>Internships</h3>
+                        <p>Find opportunities that shape your future.</p>
+                    </div>
+                </div>
+                <img class="category-art category-art-internships" src="assets/icons/briefcase.png" alt="" aria-hidden="true">
+            </article>
+
+            <article class="category-card category-events reveal">
+                <div class="category-content">
+                    <span class="category-icon">
+                        <img src="assets/icons/calendar.png" alt="" aria-hidden="true">
+                    </span>
+                    <div>
+                        <h3>Events</h3>
+                        <p>Stay updated with university IT events.</p>
+                    </div>
+                </div>
+                <img class="category-art category-art-events" src="assets/icons/calendar.png" alt="" aria-hidden="true">
+            </article>
+
+            <article class="category-card category-community reveal">
+                <div class="category-content">
+                    <span class="category-icon">
+                        <img src="assets/icons/team.png" alt="" aria-hidden="true">
+                    </span>
+                    <div>
+                        <h3>Community</h3>
+                        <p>Find teammates, roommates and make connections.</p>
+                    </div>
+                </div>
+                <img class="category-art category-art-community" src="assets/icons/team.png" alt="" aria-hidden="true">
+            </article>
+        </div>
+    </section>
+    <!--    <section class="section">-->
+    <!--        <span class="eyebrow">GROWING TOGETHER</span>-->
+    <!--        <h2>One place. Thousands of possibilities.</h2>-->
+    <!--        <div class="stats">-->
+    <!--            <div class="stat">-->
+    <!--                <strong data-count="2486">0</strong>-->
+    <!--                <span>Students</span>-->
+    <!--            </div><div class="stat">-->
+    <!--            <strong data-count="1284">0</strong>-->
+    <!--            <span>Resources</span>-->
+    <!--        </div>-->
+    <!--            <div class="stat">-->
+    <!--                <strong data-count="327">0</strong>-->
+    <!--                <span>Previous exams</span>-->
+    <!--            </div>-->
+    <!--            <div class="stat">-->
+    <!--                <strong data-count="46">0</strong>-->
+    <!--                <span>Internships</span>-->
+    <!--            </div>-->
+    <!--            <div class="stat">-->
+    <!--                <strong data-count="18">0</strong>-->
+    <!--                <span>Upcoming events</span>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
+    <section class="section" id="universities">
+        <span class="eyebrow">MADE FOR EVERY CAMPUS</span>
+        <h2>Your university belongs here.</h2>
+        <div class="universities">
+            <div class="uni">UKIM<small>FINKI · FEIT · PMF</small>
+            </div>
+            <div class="uni">SEEU<small>Contemporary Sciences & Technologies</small>
+            </div>
+            <div class="uni">UGD<small>Faculty of Computer Science</small>
+            </div>
+            <div class="uni">UKLO<small>Faculty of ICT</small>
+            </div>
+            <div class="uni">UT<small>Natural Sciences & Mathematics</small>
+            </div>
+            <div class="uni">MTU<small>Faculty of Informatics</small>
+            </div>
+            <div class="uni">UIST<small>Four specialist IT faculties</small>
+            </div>
+            <div class="uni">IBU<small>Faculty of Engineering</small>
+            </div>
+            <div class="uni">UACS<small>Computer Science & IT School</small>
+            </div>
+            <div class="uni">AUE-FON<small>Faculty of ICT</small>
+            </div>
+            <div class="uni">MIT<small>Computer Sciences & Technologies</small>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="stories">
+        <span class="eyebrow">STUDENT STORIES</span>
+        <h2>Built around real student needs.</h2>
+        <div class="testimonials">
+            <article class="quote">
+                <p>“Review 1”</p>
+                <b>Student 1</b>
+                <small>Software engineering student</small>
+            </article><article class="quote">
+            <p>“Review 2”</p>
+            <b>Student 2</b>
+            <small>Computer science student</small>
+        </article>
+            <article class="quote">
+                <p>“Review 3”</p>
+                <b>Student 3</b>
+                <small>Second-year student</small>
+            </article>
+        </div>
+    </section>
+    <section class="section" id="faq">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions students usually ask.</h2>
+        <div class="faq">
+            <details>
+                <summary>Is UniHub free for students?</summary>
+                <p>Yes. The student account and core platform are designed to be free.</p>
+            </details>
+            <details>
+                <summary>Which universities can join?</summary>
+                <p>UniHub includes IT-related faculties and study programmes from public and private universities across North Macedonia, with an “Other” option so no accredited IT student is excluded.</p>
+            </details>
+            <details>
+                <summary>Can students upload notes and exams?</summary>
+                <p>Yes. Logged-in students can contribute resources, while moderation and reporting keep content organized.</p>
+            </details>
+        </div>
+    </section>
+    <section class="brand-strip reveal"><img src="assets/logo-mark.png" alt=""><div><span class="eyebrow">ONE HUB</span><h2>Learn. Connect. Grow.</h2></div><p>Everything your student journey needs — from your first lecture to your first internship.</p></section>
+    <section class="cta reveal">
+        <h2>Ready to make university easier?</h2>
+        <p>Create your student profile and receive resources, events and opportunities matched to your university, year and interests.</p>
+        <a class="btn primary" style="background:#fff;color:#46349b" href="signup.html">Join UniHub</a>
+    </section>
+</main>
+<footer class="wrap">
+    <span>© 2026 UniHub · Built by Dea, Erdi & Naz</span>
+    <span>Privacy · Terms · Contact</span>
+</footer>
+<script src="public.js">
+</script>
+<script src="i18n.js"></script>
+</body>
+</html>
