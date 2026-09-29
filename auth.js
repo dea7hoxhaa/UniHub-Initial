@@ -20,18 +20,46 @@ syncThemeToggle();
 const login = document.getElementById('loginForm');
 const signup = document.getElementById('signupForm');
 
-function enter() {
-  localStorage.setItem('unihub-auth', 'true');
-  location.href = localStorage.getItem('unihub-onboarded') === 'true' ? 'app.html' : 'onboarding.html';
+async function handleLogin(email, password) {
+    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+    const errorBox = document.getElementById('loginError');
+    if (error) {
+        if (errorBox) errorBox.textContent = error.message;
+        return;
+    }
+    const { data: profile } = await supabaseClient
+        .from('profiles').select('*').eq('id', data.user.id).single();
+
+    localStorage.setItem('unihub-auth', 'true');
+    localStorage.setItem('unihub-name', profile?.full_name || 'Student');
+    localStorage.setItem('unihub-profile', JSON.stringify(profile || {}));
+
+    const onboarded = !!profile?.study_programme;
+    location.href = onboarded ? 'app.html' : 'onboarding.html';
 }
 
-login?.addEventListener('submit', e => { e.preventDefault(); enter(); });
+login?.addEventListener('submit', e => {
+    e.preventDefault();
+    handleLogin(
+        document.getElementById('loginEmail').value,
+        document.getElementById('loginPassword').value
+    );
+});
 document.getElementById('googleLogin')?.addEventListener('click', enter);
 
-signup?.addEventListener('submit', e => {
-  e.preventDefault();
-  localStorage.setItem('unihub-name', document.getElementById('fullName').value || 'Student');
-  location.href = 'onboarding.html';
+signup?.addEventListener('submit', async e => {
+    e.preventDefault();
+    const fullName = document.getElementById('fullName').value || 'Student';
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+    const { error } = await supabaseClient.auth.signUp({ email, password });
+    const errorBox = document.getElementById('signupError');
+    if (error) {
+        if (errorBox) errorBox.textContent = error.message;
+        return;
+    }
+    localStorage.setItem('unihub-name', fullName);
+    location.href = 'onboarding.html';
 });
 document.getElementById('googleSignup')?.addEventListener('click', () => location.href = 'onboarding.html');
 
@@ -112,24 +140,43 @@ if (steps.length) {
     error.textContent = '';
   }
 
-  next.addEventListener('click', () => {
+    next.addEventListener('click', async () => {
     if (!validCurrentStep()) {
       error.textContent = step === 4 ? 'Choose at least one interest to continue.' : 'Please choose one option to continue.';
       return;
     }
     if (step < steps.length - 1) { step++; render(); return; }
 
-    const university = getUniHubUniversity(state.universityId);
-    const faculty = getUniHubFaculty(state.universityId, state.facultyId);
-    const profile = {
-      ...state,
-      university: university?.name || '', universityShort: university?.shortName || '',
-      faculty: faculty?.name || '', facultyShort: faculty?.shortName || '', city: university?.city || ''
-    };
-    localStorage.setItem('unihub-profile', JSON.stringify(profile));
-    localStorage.setItem('unihub-auth', 'true');
-    localStorage.setItem('unihub-onboarded', 'true');
-    location.href = 'app.html';
+        const university = getUniHubUniversity(state.universityId);
+        const faculty = getUniHubFaculty(state.universityId, state.facultyId);
+        const profile = {
+            ...state,
+            university: university?.name || '', universityShort: university?.shortName || '',
+            faculty: faculty?.name || '', facultyShort: faculty?.shortName || '', city: university?.city || ''
+        };
+        localStorage.setItem('unihub-profile', JSON.stringify(profile));
+
+        const { data: { user } } = await supabaseClient.auth.getUser();
+        if (user) {
+            await supabaseClient.from('profiles').upsert({
+                id: user.id,
+                full_name: localStorage.getItem('unihub-name') || 'Student',
+                university: profile.university,
+                university_short: profile.universityShort,
+                university_id: state.universityId,      // add
+                faculty: profile.faculty,
+                faculty_short: profile.facultyShort,
+                faculty_id: state.facultyId,             // add
+                study_programme: profile.program,
+                study_year: profile.year,
+                city: profile.city,
+                interests: profile.interests
+            });
+        }
+
+        localStorage.setItem('unihub-auth', 'true');
+        localStorage.setItem('unihub-onboarded', 'true');
+        location.href = 'app.html';
   });
   back.addEventListener('click', () => { if (step) { step--; render(); } });
 
