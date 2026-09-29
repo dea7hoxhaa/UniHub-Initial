@@ -41,13 +41,16 @@
             <button type="button" class="social" id="googleSignup">G&nbsp;&nbsp; Sign up with Google</button>
             <div class="divider">OR USE EMAIL</div>
             <div class="field"><label>FULL NAME</label><input id="fullName" required placeholder="Your name"></div>
-            <div class="field"><label>EMAIL</label><input type="email" required placeholder="student@example.com"></div>
-            <div class="field"><label>PASSWORD</label><input type="password" required minlength="4" placeholder="At least 4 characters"></div>
+            <div class="field"><label>EMAIL</label><input type="email" id="signupEmail" required placeholder="student@example.com"></div>
+            <div class="field"><label>PASSWORD</label><input type="password" id="signupPassword" required minlength="4" placeholder="At least 4 characters"></div>
             <button class="btn primary auth-submit">Create account</button>
+            <p class="auth-error" id="signupError"></p>
             <div class="auth-foot">Already have an account? <a href="login.html">Sign in</a></div>
         </form>
     </section>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-client.js"></script>
 <script src="auth.js"></script>
 <script src="i18n.js"></script>
 </body>

@@ -41,18 +41,21 @@
             <div class="divider">OR CONTINUE WITH EMAIL</div>
             <div class="field">
                 <label>EMAIL</label>
-                <input type="email" required placeholder="student@example.com">
+                <input type="email" id="loginEmail" required placeholder="student@example.com">
             </div>
             <div class="field">
                 <label>PASSWORD</label>
-                <input type="password" required minlength="4" placeholder="••••••••">
+                <input type="password" id="loginPassword" required minlength="4" placeholder="••••••••">
             </div>
             <button class="btn primary auth-submit">Sign in</button>
+            <p class="auth-error" id="loginError"></p>
             <div class="auth-foot">New to UniHub? <a href="signup.html">Create an account</a>
             </div>
         </form>
     </section>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-client.js"></script>
 <script src="auth.js"></script>
 <script src="i18n.js"></script>
 </body>
