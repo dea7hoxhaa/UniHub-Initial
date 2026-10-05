@@ -1,8 +1,9 @@
 services:
   web:
     build:
-      context: .
+      context: ./
       dockerfile: Dockerfile
-    restart: unless-stopped
+    cpus: 0.25
+    mem_limit: 256m
     expose:
       - "80"
